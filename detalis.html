@@ -52,7 +52,9 @@
     <div class="container mt-5">
       <div class="row">
         <!-- DISPLAY API DATA -->
-
+        <button class="btn-primary" onclick="editProductData()">
+          Edit Product
+        </button>
         <!-- END DISPLAY API DATA -->
       </div>
     </div>
@@ -101,10 +103,19 @@
         let productPrice = document.createElement("p");
         productPrice.innerText = "Price: " + product.price + "$";
         row.appendChild(productPrice);
+        let editBtn = document.createElement("button");
+        editBtn.classList.add("btn-primary", "my-3");
+        editBtn.setAttribute(addEventListener, click);
+        editBtn.innerText = "Edit";
+        row.appendChild(editBtn);
       };
 
       window.onload = () => {
         recivedData();
+      };
+
+      const editProductData = () => {
+        window.location.assign("update.html?id=" + productId);
       };
     </script>
   </body>

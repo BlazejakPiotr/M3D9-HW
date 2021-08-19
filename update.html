@@ -89,6 +89,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
+          <h4 class="title"></h4>
           <!-- FORM -->
           <form onsubmit="sendData(event)">
             <label for="name">Product Name:</label><br />
@@ -137,6 +138,15 @@
     <!-- END BOOSTRAP SCRIPTS -->
     <!-- APP SCRIPTS -->
     <script>
+      const productId = new URLSearchParams(window.location.search).get("id");
+      let title = document.getElementById("title");
+      window.onload = () => {
+        if (productId) {
+          title.innerHTML = "Edit Product";
+        } else {
+          title.innerHTML = "Create Product";
+        }
+      };
       // POST FUCTION
       const sendData = async (event) => {
         event.preventDefault();
@@ -162,11 +172,6 @@
           }
         );
       };
-
-      // const deleteProduct = async (event) => {
-      //   event.preventDefault();
-      //   console.log(document.getElementById("delete").value);
-      // };
     </script>
   </body>
 </html>
